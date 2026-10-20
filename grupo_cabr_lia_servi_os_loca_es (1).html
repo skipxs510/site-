@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Cabrália - Serviços & Locações | Equipamentos & Máquinas Pesadas</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#060a12',
+                            800: '#0b111e',
+                            700: '#141e33',
+                            600: '#1e2c4a',
+                        },
+                        amber: {
+                            450: '#f2a900',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #060a12;
+            color: #f3f4f6;
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card-hover:hover {
+            transform: translateY(-4px);
+            border-color: rgba(245, 158, 11, 0.4);
+            box-shadow: 0 12px 30px -10px rgba(245, 158, 11, 0.15);
+        }
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(245, 158, 11, 0.1) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #060a12;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e2c4a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f59e0b;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-amber-500 selection:text-slate-900 bg-navy-900 min-h-screen flex flex-col justify-between">
+
+    <!-- TOP HEADER BAR -->
+    <div class="bg-navy-800 border-b border-white/5 text-xs text-slate-400 py-2 px-4 hidden md:block">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-6">
+                <span><i class="fa-solid fa-location-dot text-amber-500 mr-2"></i>Atendendo Santa Cruz Cabrália, Porto Seguro e Costa do Descobrimento - BA</span>
+                <span><i class="fa-solid fa-clock text-amber-500 mr-2"></i>Atendimento Comercial e Plantão 24h</span>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="mailto:contato@grupocabralia.com.br" class="hover:text-amber-500 transition-colors flex items-center">
+                    <i class="fa-solid fa-envelope text-amber-500 mr-2"></i>contato@grupocabralia.com.br
+                </a>
+                <a href="https://wa.me/5573999166014" target="_blank" class="hover:text-amber-500 transition-colors flex items-center">
+                    <i class="fa-brands fa-whatsapp text-emerald-500 mr-2"></i>(73) 99916-6014
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <header class="sticky top-0 z-40 bg-navy-900/90 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- LOGO -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center text-slate-950 font-black text-2xl shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
+                        GC
+                    </div>
+                    <div>
+                        <span class="block text-xl font-extrabold tracking-wider text-white">GRUPO CABRÁLIA</span>
+                        <span class="block text-xs tracking-widest text-amber-500 uppercase font-semibold">Serviços & Locações</span>
+                    </div>
+                </a>
+
+                <!-- DESKTOP MENU -->
+                <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#inicio" class="text-white hover:text-amber-500 transition-colors">Início</a>
+                    <a href="#frota" class="text-slate-300 hover:text-amber-500 transition-colors">Frota & Serviços</a>
+                    <a href="#simulador" class="text-slate-300 hover:text-amber-500 transition-colors">Simular Orçamento</a>
+                    <a href="#cobertura" class="text-slate-300 hover:text-amber-500 transition-colors">Região de Atuação</a>
+                    <a href="#sobre" class="text-slate-300 hover:text-amber-500 transition-colors">A Empresa</a>
+                </nav>
+
+                <!-- HEADER ACTION BUTTONS -->
+                <div class="hidden sm:flex items-center space-x-3">
+                    <button onclick="openModal('email')" class="px-4 py-2.5 rounded-lg border border-white/20 hover:border-amber-500 text-slate-200 hover:text-amber-500 text-xs font-semibold tracking-wider uppercase transition-all">
+                        <i class="fa-solid fa-paper-plane mr-2"></i>E-mail
+                    </button>
+                    <a href="https://wa.me/5573999166014?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento%20com%20o%20Grupo%20Cabrália." target="_blank" class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-450 hover:to-amber-500 text-slate-950 text-xs font-bold tracking-wider uppercase shadow-md shadow-amber-500/20 transition-all flex items-center">
+                        <i class="fa-brands fa-whatsapp text-base mr-2"></i>WhatsApp
+                    </a>
+                </div>
+
+                <!-- MOBILE MENU TOGGLE -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="p-2 text-slate-300 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MOBILE MENU CONTAINER -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-navy-800 border-b border-white/10 px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 hover:text-amber-500">Início</a>
+            <a href="#frota" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 hover:text-amber-500">Frota & Serviços</a>
+            <a href="#simulador" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 hover:text-amber-500">Simular Orçamento</a>
+            <a href="#cobertura" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 hover:text-amber-500">Região de Atuação</a>
+            <a href="#sobre" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 hover:text-amber-500">A Empresa</a>
+            <div class="pt-4 flex flex-col space-y-2">
+                <a href="https://wa.me/5573999166014" target="_blank" class="w-full text-center py-3 rounded-lg bg-amber-500 text-slate-950 font-bold uppercase text-sm">
+                    <i class="fa-brands fa-whatsapp mr-2"></i>Atendimento WhatsApp
+                </a>
+                <button onclick="openModal('email')" class="w-full text-center py-3 rounded-lg border border-white/20 text-slate-200 font-bold uppercase text-sm">
+                    <i class="fa-solid fa-envelope mr-2"></i>Enviar E-mail
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative py-20 lg:py-28 overflow-hidden bg-grid-pattern">
+        <!-- Ambient lighting glow -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-amber-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl">
+                <!-- Badge -->
+                <div class="inline-flex items-center space-x-2 bg-amber-500/10 border border-amber-500/30 rounded-full px-4 py-1.5 mb-6">
+                    <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                    <span class="text-xs font-bold tracking-wider text-amber-500 uppercase">Soluções Pesadas & Saneamento</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+                    Excelência, Robustez e Agilidade em <span class="text-gradient-gold">Cada Operação</span>
+                </h1>
+
+                <p class="text-slate-300 text-lg sm:text-xl leading-relaxed mb-8">
+                    O <strong>Grupo Cabrália - Serviços & Locações</strong> disponibiliza frota moderna e suporte operacional de alto padrão para saneamento, locação de caçambas, movimentação de terra, resgate e transporte de passageiros em toda a Costa do Descobrimento.
+                </p>
+
+                <!-- Dual CTA -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="https://wa.me/5573999166014?text=Olá!%20Preciso%20de%20um%20orçamento%20de%20equipamentos/serviços%20do%20Grupo%20Cabrália." target="_blank" class="px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-450 hover:to-amber-500 text-slate-950 font-extrabold uppercase text-sm tracking-wider shadow-xl shadow-amber-500/25 transition-all text-center flex items-center justify-center">
+                        <i class="fa-brands fa-whatsapp text-xl mr-3"></i>Solicitar Orçamento no WhatsApp
+                    </a>
+                    <button onclick="openModal('email')" class="px-8 py-4 rounded-xl bg-navy-800 hover:bg-navy-700 border border-white/20 text-white font-bold uppercase text-sm tracking-wider transition-all text-center flex items-center justify-center">
+                        <i class="fa-solid fa-paper-plane mr-3 text-amber-500"></i>Enviar E-mail Comercial
+                    </button>
+                </div>
+
+                <!-- Features Highlights -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 pt-12 border-t border-white/10">
+                    <div>
+                        <span class="block text-2xl font-black text-amber-500">100%</span>
+                        <span class="text-xs text-slate-400">Atendimento Regional</span>
+                    </div>
+                    <div>
+                        <span class="block text-2xl font-black text-amber-500">24/7</span>
+                        <span class="text-xs text-slate-400">Suporte Operacional</span>
+                    </div>
+                    <div>
+                        <span class="block text-2xl font-black text-amber-500">Frota Própria</span>
+                        <span class="text-xs text-slate-400">Equipamentos Revisados</span>
+                    </div>
+                    <div>
+                        <span class="block text-2xl font-black text-amber-500">Agilidade</span>
+                        <span class="text-xs text-slate-400">Mobilização Rápida</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATALOG & SERVICES SHOWROOM -->
+    <section id="frota" class="py-20 bg-navy-800/50 border-y border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-bold text-amber-500 uppercase tracking-widest mb-2">Showroom de Locações</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Nossa Frota e Serviços Especiais</h3>
+                <p class="text-slate-400 mt-3 text-sm">Selecione uma categoria abaixo para explorar nossas soluções disponíveis para locação e prestação de serviço imediata.</p>
+            </div>
+
+            <!-- TABS FILTER -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                <button onclick="filterFleet('all')" id="tab-all" class="tab-btn px-5 py-2.5 rounded-lg font-bold text-xs uppercase tracking-wider transition-all bg-amber-500 text-slate-950 shadow-md">
+                    Todos os Serviços
+                </button>
+                <button onclick="filterFleet('amarela')" id="tab-amarela" class="tab-btn px-5 py-2.5 rounded-lg font-bold text-xs uppercase tracking-wider transition-all bg-navy-800 text-slate-300 border border-white/10 hover:border-amber-500">
+                    Linha Amarela & Pesados
+                </button>
+                <button onclick="filterFleet('saneamento')" id="tab-saneamento" class="tab-btn px-5 py-2.5 rounded-lg font-bold text-xs uppercase tracking-wider transition-all bg-navy-800 text-slate-300 border border-white/10 hover:border-amber-500">
+                    Água & Saneamento
+                </button>
+                <button onclick="filterFleet('transporte')" id="tab-transporte" class="tab-btn px-5 py-2.5 rounded-lg font-bold text-xs uppercase tracking-wider transition-all bg-navy-800 text-slate-300 border border-white/10 hover:border-amber-500">
+                    Resgate & Transporte
+                </button>
+            </div>
+
+            <!-- CARDS GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="fleetGrid">
+                
+                <!-- CARD 1: LIMPA FOSSA -->
+                <div class="fleet-card glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col justify-between" data-category="saneamento">
+                    <div>
+                        <div class="h-48 bg-navy-700 relative overflow-hidden flex items-center justify-center">
+                            <i class="fa-solid fa-truck-droplet text-6xl text-amber-500/40"></i>
+                            <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 font-black text-xs px-3 py-1 rounded-full uppercase">Saneamento</span>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-white mb-2">Caminhão Limpa Fossa</h4>
+                            <p class="text-slate-400 text-xs mb-4">Atendimento e esgotamento a vácuo para resíduos líquidos e pastosos com descarte ecológico regulamentado.</p>
+                            
+                            <ul class="text-xs text-slate-300 space-y-2 mb-6">
+                                <li class="flex items-center"><i class="fa-solid fa-check text-amber-500 mr-2"></i>Bomba de sucção de alta vácuo</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-amber-500 mr-2"></i>Capacidade para resíduos industriais e residenciais</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-amber-500 mr-2"></i>Equipe técnica qualificada</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex space-x-2">
+                        <a href="https://wa.me/5573999166014?text=Olá,%20gostaria%20de%20orçamento%20para%20Caminhão%20Limpa%20Fossa." target="_blank" class="flex-1 text-center py-2.5 rounded-lg bg-amber-500 hover:bg-amber-450 text-slate-950 font-bold text-xs uppercase">WhatsApp</a>
+                        <button onclick="openModal('email', 'Caminhão Limpa Fossa')" class="px-4 py-2.5 rounded-lg border border-white/20 hover:border-amber-500 text-slate-200 text-xs font-bold uppercase"><i class="fa-solid fa-envelope"></i></button>
+                    </div>
+                </div>
+
+                <!-- CARD 2: CAMINHÃO PIPA -->
+                <div class="fleet-card glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col justify-between" data-category="saneamento">
+                    <div>
+                        <div class="h-48 bg-navy-700 relative overflow-hidden flex items-center justify-center">
+                            <i class="fa-solid fa-faucet-drip text-6xl text-amber-500/40"></i>
+                            <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 font-black text-xs px-3 py-1 rounded-full uppercase">Abastecimento</span>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-white mb-2">Caminhão PIPA</h4>
+                            <p class="text-slate-400 text-xs mb-4">Abastecimento de água potável para obras, pousadas, condomínios, eventos e emergências operacionais.</p>
+                            
+                            <ul class="text-xs text-slate-300 space-y-2 mb-6">
+                                <li class="flex items-center"><i class="fa-solid fa-check text-amber-500 mr-2"></i>Água com laudo de potabilidade</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-amber-500 mr-2"></i>Equipado com motobomba de alta vazão</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-amber-500 mr-2"></i>Atendimento de urgência 24h</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex space-x-2">
+                        <a href="https://wa.me/5573999166014?text=Olá,%20gostaria%20de%20orçamento%20para%20Caminhão%20PIPA." target="_blank" class="flex-1 text-center py-2.5 rounded-lg bg-amber-500 hover:bg-amber-450 text-slate-950 font-bold text-xs uppercase">WhatsApp</a>
+                        <button onclick="openModal('email', 'Caminhão PIPA')" class="px-4 py-2.5 rounded-lg border border-white/20 hover:border-amber-500 text-slate-200 text-xs font-bold uppercase"><i class="fa-solid fa-envelope"></i></button>
+                    </div>
+                </div>
+
+                <!-- CARD 3: CAÇAMBA PARA ENTULHO -->
+                <div class="fleet-card glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col justify-between" data-category="amarela">
+                    <div>
+                        <div class="h-48 bg-navy-700 relative overflow-hidden flex items-center justify-center">
+                            <i class="fa-solid fa-dumpster text-6xl text-amber-500/40"></i>
+                            <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 font-black text-xs px-3 py-1 rounded-full uppercase">Obras & Entulho</span>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-white mb-2">Caçamba para Entulho</h4>
+                            <p class="text-slate-400 text-xs mb-4">Locação de caçambas estacionárias e remoção de entulho de construção civil com descarte correto.</p>
+                            
+                            <ul class="text-xs text-slate-300 space-y-2 mb-6">
+                                <li class="flex items-center"><i class="fa-solid fa-check text-amber-500 mr-2"></i>Caçambas padronizadas e robustas</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-amber-500 mr-2"></i>Entrega e retirada ágil na obra</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-amber-500 mr-2"></i>Contratos diários, semanais ou mensais</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex space-x-2">
+                        <a href="https://wa.me/5573999166014?text=Olá,%20gostaria%20de%20orçamento%20para%20Caçamba%20para%20Entulho." target="_blank" class="flex-1 text-center py-2.5 rounded-lg bg-amber-500 hover:bg-amber-450 text-slate-950 font-bold text-xs uppercase">WhatsApp</a>
+                        <button onclick="openModal('email', 'Caçamba para Entulho')" class="px-4 py-2.5 rounded-lg border border-white/20 hover:border-amber-500 text-slate-200 text-xs font-bold uppercase"><i class="fa-solid fa-envelope"></i></button>
+                    </div>
+                </div>
+
+                <!-- CARD 4: RETROESCAVADEIRA -->
+                <div class="fleet-card glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col justify-between" data-category="amarela">
+                    <div>
+                        <div class="h-48 bg-navy-700 relative overflow-hidden flex items-center justify-center">
+                            <i class="fa-solid fa-trowel-bricks text-6xl text-amber-500/40"></i>
+                            <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 font-black text-xs px-3 py-1 rounded-full uppercase">Linha Amarela</span>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-white mb-2">Retroescavadeira</h4>
+                            <p class="text-slate-400 text-xs mb-4">Versatilidade máxima para escavação, nivelamento de terrenos, abertura de valas e movimentação de carga.</p>
+                            
+                            <ul class="text-xs text-slate-300 space-y-2 mb-6">
+                                <li class="flex items-center"><i class="fa-solid fa-check text-amber-500 mr-2"></i>Tração 4x4 reforçada</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-amber-500 mr-2"></i>Operadores experientes e qualificados</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-amber-500 mr-2"></i>Manutenção preventiva em dia</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex space-x-2">
+                        <a href="https://wa.me/5573999166014?text=Olá,%20gostaria%20de%20orçamento%20para%20Retroescavadeira." target="_blank" class="flex-1 text-center py-2.5 rounded-lg bg-amber-500 hover:bg-amber-450 text-slate-950 font-bold text-xs uppercase">WhatsApp</a>
+                        <button onclick="openModal('email', 'Retroescavadeira')" class="px-4 py-2.5 rounded-lg border border-white/20 hover:border-amber-500 text-slate-200 text-xs font-bold uppercase"><i class="fa-solid fa-envelope"></i></button>
+                    </div>
+                </div>
+
+                <!-- CARD 5: MINIESCAVADEIRA & MINI CARREGADEIRA -->
+                <div class="fleet-card glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col justify-between" data-category="amarela">
+                    <div>
+                        <div class="h-48 bg-navy-700 relative overflow-hidden flex items-center justify-center">
+                            <i class="fa-solid fa-truck-monster text-6xl text-amber-500/40"></i>
+                            <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 font-black text-xs px-3 py-1 rounded-full uppercase">Espaços Reduzidos</span>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-white mb-2">Miniescavadeira & Mini Carregadeira</h4>
+                            <p class="text-slate-400 text-xs mb-4">Equipamentos compactos para serviços em locais com acesso restrito, áreas urbanas e obras internas.</p>
+                            
+                            <ul class="text-xs text-slate-300 space-y-2 mb-6">
+                                <li class="flex items-center"><i class="fa-solid fa-check text-amber-500 mr-2"></i>Alta precisão e menor impacto no solo</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-amber-500 mr-2"></i>Ideais para fundações, valas finas e paisagismo</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-amber-500 mr-2"></i>Fácil transporte e agilidade</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex space-x-2">
+                        <a href="https://wa.me/5573999166014?text=Olá,%20gostaria%20de%20orçamento%20para%20Miniescavadeira/Mini%20Carregadeira." target="_blank" class="flex-1 text-center py-2.5 rounded-lg bg-amber-500 hover:bg-amber-450 text-slate-950 font-bold text-xs uppercase">WhatsApp</a>
+                        <button onclick="openModal('email', 'Miniescavadeira & Mini Carregadeira')" class="px-4 py-2.5 rounded-lg border border-white/20 hover:border-amber-500 text-slate-200 text-xs font-bold uppercase"><i class="fa-solid fa-envelope"></i></button>
+                    </div>
+                </div>
+
+                <!-- CARD 6: SERVIÇO DE GUINCHO -->
+                <div class="fleet-card glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col justify-between" data-category="transporte">
+                    <div>
+                        <div class="h-48 bg-navy-700 relative overflow-hidden flex items-center justify-center">
+                            <i class="fa-solid fa-truck-pickup text-6xl text-amber-500/40"></i>
+                            <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 font-black text-xs px-3 py-1 rounded-full uppercase">Resgate 24h</span>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-white mb-2">Serviço de Guincho</h4>
+                            <p class="text-slate-400 text-xs mb-4">Socorro mecânico, resgate e transporte de veículos leves, pesados e máquinas industriais.</p>
+                            
+                            <ul class="text-xs text-slate-300 space-y-2 mb-6">
+                                <li class="flex items-center"><i class="fa-solid fa-check text-amber-500 mr-2"></i>Prancha hidráulica moderna</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-amber-500 mr-2"></i>Atendimento em rodovias e estradas rurais</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-amber-500 mr-2"></i>Prontidão 24 horas por dia</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex space-x-2">
+                        <a href="https://wa.me/5573999166014?text=Olá,%20preciso%20de%20Serviço%20de%20Guincho%20Urgente." target="_blank" class="flex-1 text-center py-2.5 rounded-lg bg-amber-500 hover:bg-amber-450 text-slate-950 font-bold text-xs uppercase">WhatsApp</a>
+                        <button onclick="openModal('email', 'Serviço de Guincho')" class="px-4 py-2.5 rounded-lg border border-white/20 hover:border-amber-500 text-slate-200 text-xs font-bold uppercase"><i class="fa-solid fa-envelope"></i></button>
+                    </div>
+                </div>
+
+                <!-- CARD 7: MICRO-ÔNIBUS -->
+                <div class="fleet-card glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col justify-between" data-category="transporte">
+                    <div>
+                        <div class="h-48 bg-navy-700 relative overflow-hidden flex items-center justify-center">
+                            <i class="fa-solid fa-bus text-6xl text-amber-500/40"></i>
+                            <span class="absolute top-4 left-4 bg-amber-500 text-slate-950 font-black text-xs px-3 py-1 rounded-full uppercase">Transporte</span>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-white mb-2">Micro-ônibus</h4>
+                            <p class="text-slate-400 text-xs mb-4">Transporte corporativo de colaboradores para obras, eventos, translados regionais e turismo privado.</p>
+                            
+                            <ul class="text-xs text-slate-300 space-y-2 mb-6">
+                                <li class="flex items-center"><i class="fa-solid fa-check text-amber-500 mr-2"></i>Veículos equipados com ar-condicionado</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-amber-500 mr-2"></i>Motoristas profissionais experientes</li>
+                                <li class="flex items-center"><i class="fa-solid fa-check text-amber-500 mr-2"></i>Contratos diários ou de longo prazo</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex space-x-2">
+                        <a href="https://wa.me/5573999166014?text=Olá,%20gostaria%20de%20orçamento%20para%20Micro-ônibus." target="_blank" class="flex-1 text-center py-2.5 rounded-lg bg-amber-500 hover:bg-amber-450 text-slate-950 font-bold text-xs uppercase">WhatsApp</a>
+                        <button onclick="openModal('email', 'Micro-ônibus')" class="px-4 py-2.5 rounded-lg border border-white/20 hover:border-amber-500 text-slate-200 text-xs font-bold uppercase"><i class="fa-solid fa-envelope"></i></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE BUDGET ESTIMATOR / CALCULATOR -->
+    <section id="simulador" class="py-20 relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-8 sm:p-12 border border-amber-500/20 shadow-2xl relative overflow-hidden">
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <span class="text-xs font-bold text-amber-500 uppercase tracking-widest">Simulador Interativo</span>
+                    <h3 class="text-3xl font-extrabold text-white mt-1">Monte seu Pedido de Orçamento</h3>
+                    <p class="text-slate-400 text-xs mt-2">Preencha os parâmetros abaixo para gerar uma solicitação detalhada pronta para envio comercial.</p>
+                </div>
+
+                <form id="calcForm" onsubmit="event.preventDefault(); generateEstimate();" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">1. Selecione o Serviço</label>
+                        <select id="calcService" class="w-full bg-navy-800 border border-white/10 rounded-xl p-3 text-sm text-white focus:border-amber-500 focus:outline-none">
+                            <option value="Limpa Fossa (Saneamento)">Caminhão Limpa Fossa</option>
+                            <option value="Caminhão PIPA (Água Potável)">Caminhão PIPA</option>
+                            <option value="Caçamba para Entulho">Caçamba para Entulho</option>
+                            <option value="Retroescavadeira">Retroescavadeira</option>
+                            <option value="Miniescavadeira / Mini Carregadeira">Miniescavadeira / Mini Carregadeira</option>
+                            <option value="Serviço de Guincho">Serviço de Guincho</option>
+                            <option value="Micro-ônibus (Transporte)">Micro-ônibus</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">2. Cidade / Localidade</label>
+                        <select id="calcCity" class="w-full bg-navy-800 border border-white/10 rounded-xl p-3 text-sm text-white focus:border-amber-500 focus:outline-none">
+                            <option value="Santa Cruz Cabrália - BA">Santa Cruz Cabrália</option>
+                            <option value="Coroa Vermelha - BA">Coroa Vermelha</option>
+                            <option value="Porto Seguro - BA">Porto Seguro</option>
+                            <option value="Arraial d'Ajuda - BA">Arraial d'Ajuda</option>
+                            <option value="Trancoso - BA">Trancoso</option>
+                            <option value="Eunápolis - BA">Eunápolis</option>
+                            <option value="Outra região na Costa do Descobrimento">Outra Localidade na Costa do Descobrimento</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">3. Urgência do Serviço</label>
+                        <select id="calcUrgency" class="w-full bg-navy-800 border border-white/10 rounded-xl p-3 text-sm text-white focus:border-amber-500 focus:outline-none">
+                            <option value="Imediato / Atendimento Hoje">Imediato (Urgente / Hoje)</option>
+                            <option value="Para os próximos 2 a 3 dias">Próximos 2 a 3 dias</option>
+                            <option value="Planejamento para esta semana">Nesta semana</option>
+                            <option value="Cotação de Contrato Mensal">Contrato de Médio/Longo Prazo</option>
+                        </select>
+                    </div>
+                </form>
+
+                <!-- OUTPUT PREVIEW CARD -->
+                <div id="calcResult" class="mt-8 bg-navy-900/80 rounded-2xl p-6 border border-white/10">
+                    <div class="flex items-center justify-between mb-4 border-b border-white/10 pb-3">
+                        <span class="text-xs font-bold text-amber-500 uppercase tracking-widest"><i class="fa-solid fa-file-lines mr-2"></i>Resumo da Solicitação</span>
+                        <span class="text-xs text-slate-400">Grupo Cabrália - Atendimento Direto</span>
+                    </div>
+
+                    <p id="calcSummaryText" class="text-slate-200 text-sm leading-relaxed mb-6">
+                        Solicitação configurada para <strong>Caminhão Limpa Fossa</strong> na região de <strong>Santa Cruz Cabrália - BA</strong> com urgência <strong>Imediato / Atendimento Hoje</strong>.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <button onclick="sendCalculatedWhatsApp()" class="flex-1 py-3 px-6 rounded-xl bg-amber-500 hover:bg-amber-450 text-slate-950 font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center">
+                            <i class="fa-brands fa-whatsapp text-lg mr-2"></i>Enviar Solicitação via WhatsApp
+                        </button>
+                        <button onclick="sendCalculatedEmail()" class="py-3 px-6 rounded-xl border border-white/20 hover:border-amber-500 text-slate-200 font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center">
+                            <i class="fa-solid fa-envelope mr-2"></i>Enviar por E-mail
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- REGION OF COVERAGE -->
+    <section id="cobertura" class="py-20 bg-navy-800/40 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-xs font-bold text-amber-500 uppercase tracking-widest">Atuação Estratégica</span>
+                    <h3 class="text-3xl font-extrabold text-white mt-2 mb-4">Atendimento Ágil em Toda a Costa do Descobrimento</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                        Com base operacional estrategicamente posicionada no polo <strong>Santa Cruz Cabrália & Porto Seguro</strong>, garantimos rápido deslocamento e suporte técnico contínuo em todas as localidades da região.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div class="p-4 rounded-xl bg-navy-900 border border-white/5">
+                            <i class="fa-solid fa-location-dot text-amber-500 text-lg mb-2 block"></i>
+                            <strong class="block text-white">Santa Cruz Cabrália</strong>
+                            <span class="text-xs text-slate-400">Sede & Base Principal</span>
+                        </div>
+                        <div class="p-4 rounded-xl bg-navy-900 border border-white/5">
+                            <i class="fa-solid fa-location-dot text-amber-500 text-lg mb-2 block"></i>
+                            <strong class="block text-white">Porto Seguro</strong>
+                            <span class="text-xs text-slate-400">Atendimento Diário</span>
+                        </div>
+                        <div class="p-4 rounded-xl bg-navy-900 border border-white/5">
+                            <i class="fa-solid fa-location-dot text-amber-500 text-lg mb-2 block"></i>
+                            <strong class="block text-white">Arraial d'Ajuda & Trancoso</strong>
+                            <span class="text-xs text-slate-400">Suporte a Obras e Pousadas</span>
+                        </div>
+                        <div class="p-4 rounded-xl bg-navy-900 border border-white/5">
+                            <i class="fa-solid fa-location-dot text-amber-500 text-lg mb-2 block"></i>
+                            <strong class="block text-white">Coroa Vermelha & Região</strong>
+                            <span class="text-xs text-slate-400">Atendimento Imediato</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTACT BOX SUMMARY -->
+                <div class="glass-card rounded-2xl p-8 border border-white/10 space-y-6">
+                    <h4 class="text-xl font-bold text-white border-b border-white/10 pb-4">Canais Diretos do Grupo Cabrália</h4>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-500 flex items-center justify-center shrink-0">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                        </div>
+                        <div>
+                            <span class="block text-xs text-slate-400 uppercase font-bold">WhatsApp / Telefone</span>
+                            <a href="https://wa.me/5573999166014" target="_blank" class="text-lg font-bold text-white hover:text-amber-500">(73) 99916-6014</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-500 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-envelope text-lg"></i>
+                        </div>
+                        <div>
+                            <span class="block text-xs text-slate-400 uppercase font-bold">E-mail Comercial</span>
+                            <a href="mailto:contato@grupocabralia.com.br" class="text-base font-bold text-white hover:text-amber-500">contato@grupocabralia.com.br</a>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+                        <span class="text-xs text-slate-400">Horário comercial & suporte emergencial</span>
+                        <span class="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full">Ativo Agora</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-navy-900 border-t border-white/10 py-12 text-xs text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-lg bg-amber-500 flex items-center justify-center text-slate-950 font-black text-sm">
+                        GC
+                    </div>
+                    <div>
+                        <span class="block text-sm font-bold text-white">GRUPO CABRÁLIA</span>
+                        <span class="block text-[10px] text-amber-500 uppercase tracking-widest">Serviços & Locações</span>
+                    </div>
+                </div>
+
+                <div class="text-center md:text-right">
+                    <p>© 2026 Grupo Cabrália - Serviços & Locações. Todos os direitos reservados.</p>
+                    <p class="mt-1 text-slate-500">Equipamentos Pesados • Saneamento • Caçambas • Transportes • Bahia</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING ACTION BUTTONS -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col space-y-3">
+        <!-- WhatsApp Floating Button -->
+        <a href="https://wa.me/5573999166014?text=Olá,%20gostaria%20de%20falar%20com%20o%20atendimento%20do%20Grupo%20Cabrália." target="_blank" class="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 flex items-center justify-center shadow-2xl shadow-emerald-500/40 hover:scale-110 transition-all group" title="WhatsApp Atendimento">
+            <i class="fa-brands fa-whatsapp text-2xl"></i>
+        </a>
+    </div>
+
+    <div class="fixed bottom-6 left-6 z-50">
+        <!-- Email Floating Button -->
+        <button onclick="openModal('email')" class="w-12 h-12 rounded-full bg-navy-800 hover:bg-navy-700 text-amber-500 border border-amber-500/30 flex items-center justify-center shadow-xl hover:scale-110 transition-all" title="Enviar E-mail Comercial">
+            <i class="fa-solid fa-envelope text-lg"></i>
+        </button>
+    </div>
+
+    <!-- DUAL CONTACT MODAL -->
+    <div id="contactModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="glass-card rounded-2xl max-w-md w-full p-6 border border-white/10 relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <h3 class="text-lg font-extrabold text-white mb-1">Contato Comercial</h3>
+            <p id="modalSubtext" class="text-xs text-slate-400 mb-6">Grupo Cabrália - Serviços & Locações</p>
+
+            <form id="emailForm" onsubmit="handleModalSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-300 mb-1">Seu Nome / Empresa</label>
+                    <input type="text" id="modalName" required class="w-full bg-navy-900 border border-white/10 rounded-lg p-2.5 text-xs text-white focus:border-amber-500 focus:outline-none" placeholder="Digite seu nome">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-300 mb-1">Serviço Pretendido</label>
+                    <input type="text" id="modalService" required class="w-full bg-navy-900 border border-white/10 rounded-lg p-2.5 text-xs text-white focus:border-amber-500 focus:outline-none" placeholder="Ex: Caminhão PIPA, Caçamba, etc.">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-300 mb-1">Mensagem / Observações</label>
+                    <textarea id="modalMessage" rows="3" class="w-full bg-navy-900 border border-white/10 rounded-lg p-2.5 text-xs text-white focus:border-amber-500 focus:outline-none" placeholder="Descreva sua necessidade..."></textarea>
+                </div>
+
+                <div class="pt-2 flex space-x-2">
+                    <button type="submit" class="w-full py-3 rounded-lg bg-amber-500 hover:bg-amber-450 text-slate-950 font-bold text-xs uppercase tracking-wider">
+                        Enviar via E-mail
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Toggle Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Filter Fleet Showcase
+        function filterFleet(category) {
+            const cards = document.querySelectorAll('.fleet-card');
+            const buttons = document.querySelectorAll('.tab-btn');
+
+            // Reset buttons
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-amber-500', 'text-slate-950', 'shadow-md');
+                btn.classList.add('bg-navy-800', 'text-slate-300');
+            });
+
+            // Highlight active button
+            const activeBtn = document.getElementById(`tab-${category}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-navy-800', 'text-slate-300');
+                activeBtn.classList.add('bg-amber-500', 'text-slate-950', 'shadow-md');
+            }
+
+            // Filter cards
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Budget Calculator Logic
+        function generateEstimate() {
+            const service = document.getElementById('calcService').value;
+            const city = document.getElementById('calcCity').value;
+            const urgency = document.getElementById('calcUrgency').value;
+
+            const text = `Solicitação configurada para **${service}** na região de **${city}** com prazo de atendimento **${urgency}**.`;
+            document.getElementById('calcSummaryText').innerHTML = text;
+        }
+
+        // Send Calculated Request to WhatsApp
+        function sendCalculatedWhatsApp() {
+            const service = document.getElementById('calcService').value;
+            const city = document.getElementById('calcCity').value;
+            const urgency = document.getElementById('calcUrgency').value;
+
+            const message = `Olá, Grupo Cabrália! Gostaria de um orçamento:\n- *Serviço:* ${service}\n- *Local:* ${city}\n- *Urgência:* ${urgency}`;
+            const url = `https://wa.me/5573999166014?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        // Send Calculated Request to Email
+        function sendCalculatedEmail() {
+            const service = document.getElementById('calcService').value;
+            const city = document.getElementById('calcCity').value;
+            const urgency = document.getElementById('calcUrgency').value;
+
+            const subject = `Orçamento Grupo Cabrália - ${service}`;
+            const body = `Olá, equipe do Grupo Cabrália.\n\nGostaria de solicitar cotação com as seguintes informações:\n\n- Serviço: ${service}\n- Localidade: ${city}\n- Prazo/Urgência: ${urgency}\n\nNo aguardo do retorno comercial.`;
+            
+            window.location.href = `mailto:contato@grupocabralia.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        // Modal Controls
+        function openModal(type, defaultService = '') {
+            const modal = document.getElementById('contactModal');
+            if (defaultService) {
+                document.getElementById('modalService').value = defaultService;
+            }
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('contactModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function handleModalSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('modalName').value;
+            const service = document.getElementById('modalService').value;
+            const message = document.getElementById('modalMessage').value;
+
+            const subject = `Contato do Site - ${service}`;
+            const body = `Nome/Empresa: ${name}\nServiço: ${service}\nObservações: ${message}`;
+
+            window.location.href = `mailto:contato@grupocabralia.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            closeModal();
+        }
+
+        // Recalculate preview on form change
+        document.getElementById('calcService').addEventListener('change', generateEstimate);
+        document.getElementById('calcCity').addEventListener('change', generateEstimate);
+        document.getElementById('calcUrgency').addEventListener('change', generateEstimate);
+    </script>
+</body>
+</html>
